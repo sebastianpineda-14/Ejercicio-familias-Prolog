@@ -1,0 +1,108 @@
+padrede('cerbelion','climaco').
+padrede('pia','climaco').
+padrede('josefino','anad').
+padrede('moira','anad').
+
+padrede('luis','mariab').
+padrede('paola','mariab').
+padrede('francy','ulises').
+padrede('estela','ulises').
+
+%  Primera Generacion
+
+padrede('climaco','rosa').
+padrede('anad','rosa').
+padrede('climaco','hector').
+padrede('anad','hector').
+padrede('climaco','juan').
+padrede('anad','juan').
+padrede('climaco','sofia').
+padrede('anad','sofia').
+padrede('climaco','maria').
+padrede('anad','maria').
+padrede('climaco','jose').
+padrede('anad','jose').
+padrede('cliamco','dora').
+padrede('anad','dora').
+
+padrede('mariab','marina').
+padrede('ulises','marina').
+% Segunda generacion
+
+padrede('rosa','arturo').
+padrede('javierc','arturo').
+padrede('rosa','javier').
+padrede('javierc','javier').
+padrede('rosa','jaime').
+padrede('jaimer','jaime').
+padrede('rosa','eliana').
+padrede('jaimer','eliana').
+padrede('rosa','ingrid').
+padrede('jaimer','ingrid').
+
+
+padrede('hector','carlos').
+padrede('marcela','carlos').
+
+
+padrede('juan','juanc').
+padrede('marina','juanc').
+padrede('juan','oscar').
+padrede('marina','oscar').
+padrede('juan','natalia').
+padrede('marina','natalia').
+padrede('juan','sebastian').
+padrede('marina','sebastian').
+
+
+padrede('sofia','diego').
+padrede('arnold','diego').
+padrede('sofia','camilo').
+padrede('arnold','camilo').
+
+
+padrede('maria','andrea').
+padrede('leon','andrea').
+
+
+padrede('jose','laura').
+padrede('berta','laura').
+padrede('jose','david').
+padrede('berta','laura').
+
+padrede('dora','jaimea').
+padrede('jaimec','jaimea').
+%  Tercera Generacion
+
+padrede('javierc','karen').
+padrede('mery','karen').
+padrede('javierc','tatiana').
+padrede('mery','tatiana').
+padrede('javierc','johan').
+padrede('mery','johan').
+
+padrede('jaime','ashley').
+padrede('alexandra','ashley').
+
+padrede('juanc','valentina').
+padrede('yamile','valentina').
+
+padrede('oscar','camila').
+padrede('nancy','camila').
+padrede('oscar','santiago').
+padrede('nancy','santiago').
+
+padrede('andrea','geraldine').
+padrede('jhon','geraldine').
+padrede('andrea','alenadro').
+padrede('jhon','alenadro').
+%  Cuarta generacion
+
+hijode(A,B) :- padrede(B,A).
+abuelode(A,B) :- padrede(A,C), padrede(C,B).
+hermanode(A,B) :- padrede(C,A), padrede(C,B), A \== B.
+primode(A,B) :- abuelode(C,A),abuelode(C,B),not(hermanode(A,B)), A \== B.
+casados(A,B) :- hijode(C,A), hijode(C,B), A \== B.
+familiarde(A,B) :- padrede(A,B).
+familiarde(A,B) :- abuelode(A,B).
+familiarde(A,B) :- hermanode(A,B).
